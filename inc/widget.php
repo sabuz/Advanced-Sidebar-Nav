@@ -6,7 +6,7 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
     public function __construct()
     {
         $widget_opts = array(
-            'classname' => 'advanced-sidebar-nav',
+            'classname' => 'advanced-sidebar-nav-widget',
             'description' => 'The best way to display navigation menus on sidebar, no matter how many depth!',
         );
 
@@ -15,11 +15,12 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
 
     public function widget($args, $instance)
     {
-    	// asset output
-		wp_enqueue_style('advanced-sidebar-nav');
-		wp_enqueue_script('advanced-sidebar-nav');
+        // asset output
+        wp_enqueue_style('advanced-sidebar-nav');
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('advanced-sidebar-nav');
 
-		// html output
+        // html output
         echo $args['before_widget'];
 
         if (!empty($instance['title'])) {
@@ -33,6 +34,12 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'echo' => false,
         ));
 
+        if($instance['color']) {
+            echo '<style>
+            .advanced-sidebar-nav ul { background-color: ' . $instance['color'] . ' }
+            </style>';
+        }
+
         echo $args['after_widget'];
     }
 
@@ -41,6 +48,7 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
         $instance = array();
         $instance['title'] = !empty($new_instance['title']) ? strip_tags($new_instance['title']) : '';
         $instance['menu'] = !empty($new_instance['menu']) ? $new_instance['menu'] : null;
+        $instance['color'] = !empty($new_instance['color']) ? $new_instance['color'] : '#ffffff';
 
         return $instance;
     }
@@ -60,6 +68,14 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'description' => '',
             'options' => 'menu',
             'default' => $instance['menu'],
+        ));
+
+        echo Advanced_Sidebar_Nav_Widget_Opts::color(array(
+            'name' => esc_attr($this->get_field_name('color')),
+            'label' => 'Color:',
+            'description' => '',
+            'value' => $instance['color'],
+            'default' => '#dd102d',
         ));
     }
 }
