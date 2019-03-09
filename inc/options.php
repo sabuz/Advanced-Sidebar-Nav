@@ -98,7 +98,13 @@ class Advanced_Sidebar_Nav_Widget_Opts
             }
         }
 
-        $html .= '</select></p>';
+        $html .= '</select>';
+        
+        if(!empty($args['description'])) {
+            $html .= '<span class="description">' . $args['description'] . '</span>';
+        }
+
+        $html .= '</p>';
 
         return $html;
     }

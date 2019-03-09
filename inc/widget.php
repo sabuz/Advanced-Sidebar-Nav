@@ -35,9 +35,8 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
         ));
 
         if($instance['color']) {
-            echo '<style>
-            .advanced-sidebar-nav ul { background-color: ' . $instance['color'] . ' }
-            </style>';
+            $css = "#{$this->id} .advanced-sidebar-nav > ul {background-color: {$instance['color']}}";
+            wp_add_inline_style('advanced-sidebar-nav', $css);
         }
 
         echo $args['after_widget'];
@@ -69,13 +68,23 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'options' => 'menu',
             'default' => $instance['menu'],
         ));
+        
+        echo Advanced_Sidebar_Nav_Widget_Opts::select(array(
+            'name' => esc_attr($this->get_field_name('theme')),
+            'label' => 'Select Theme:',
+            'description' => __('More themes are comming soon...'),
+            'options' => array(
+                'default' => 'Default',
+            ),
+            'default' => $instance['menu'],
+        ));
 
         echo Advanced_Sidebar_Nav_Widget_Opts::color(array(
             'name' => esc_attr($this->get_field_name('color')),
-            'label' => 'Color:',
+            'label' => 'Accent Color:',
             'description' => '',
             'value' => $instance['color'],
-            'default' => '#dd102d',
+            'default' => '#0F434F',
         ));
     }
 }

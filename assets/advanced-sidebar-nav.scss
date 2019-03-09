@@ -9,74 +9,6 @@
         box-sizing: border-box;
     }
 
-    ul {
-        @extend %ul;
-        background-color: #dd4b39;
-
-        ul {
-            @extend %ul;
-            display: none;
-            background-color: rgba($color: #000000, $alpha: 0.1);
-        }
-
-        li {
-            position: relative;
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none;
-
-            &:hover {
-                transform: none !important;
-            }
-
-            &.current-menu-item,
-			&.current-menu-ancestor {
-                > a {
-                    color: #ffffff !important;
-                    background-color: rgba(
-                        $color: #000000,
-                        $alpha: 0.1
-                    ) !important;
-                    transform: none !important;
-                }
-            }
-
-            &.current-menu-ancestor {
-                > ul {
-                    display: block;
-                }
-            }
-
-            &:before,
-            &:after {
-                display: none;
-            }
-        }
-
-        a {
-            position: relative;
-            display: block;
-            font-size: 14px !important;
-            font-weight: 400 !important;
-            line-height: 1.4 !important;
-            text-align: left;
-            text-decoration: none !important;
-            color: #ffffff !important;
-            margin: 0 !important;
-            padding: 15px 20px !important;
-            outline: none;
-            box-shadow: none;
-            transition: all 100ms;
-
-			&:hover,
-			&.advanced-sidebar-nav-menu-open {
-                color: #ffffff !important;
-                background-color: rgba($color: #000000, $alpha: 0.1) !important;
-                transform: none !important;
-            }
-        }
-    }
-
     &:after {
         content: "";
         display: table;
@@ -90,7 +22,6 @@
         margin-top: -12px;
         width: 25px;
         height: 25px;
-        border: 1px solid rgba($color: #ffffff, $alpha: 0.8);
         border-radius: 2px;
         z-index: 1;
         cursor: pointer;
@@ -99,7 +30,6 @@
         &:after {
             content: "";
             position: absolute;
-            background-color: rgba($color: #ffffff, $alpha: 0.8);
             transition: transform 0.25s ease-out;
         }
 
@@ -125,6 +55,111 @@
             }
             &:after {
                 transform: rotate(180deg);
+            }
+        }
+    }
+
+    // structure
+    ul {
+        @extend %ul;
+
+        ul {
+            @extend %ul;
+            display: none;
+        }
+
+        li {
+            position: relative;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none;
+
+            &:hover {
+                transform: none !important;
+            }
+
+            &.current-menu-item,
+            &.current-menu-ancestor {
+                > a {
+                    transform: none !important;
+                }
+            }
+
+            &.current-menu-ancestor {
+                > ul {
+                    display: block;
+                }
+            }
+
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+
+        a {
+            position: relative;
+            display: block;
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            line-height: 1.4 !important;
+            text-align: left;
+            text-decoration: none !important;
+            margin: 0 !important;
+            padding: 15px 20px !important;
+            outline: none;
+            box-shadow: none;
+            transition: all 100ms;
+
+            &:hover,
+            &.advanced-sidebar-nav-menu-open {
+                transform: none !important;
+            }
+        }
+    }
+
+    // default
+    &.advanced-sidebar-nav-default {
+        .advanced-sidebar-nav-toggle {
+            border: 1px solid rgba($color: #ffffff, $alpha: 0.8);
+
+            &:before,
+            &:after {
+                background-color: rgba($color: #ffffff, $alpha: 0.8);
+            }
+        }
+
+        ul {
+            background-color: #dd4b39;
+
+            ul {
+                background-color: rgba($color: #000000, $alpha: 0.1);
+            }
+
+            li {
+                &.current-menu-item,
+                &.current-menu-ancestor {
+                    > a {
+                        color: #ffffff !important;
+                        background-color: rgba(
+                            $color: #000000,
+                            $alpha: 0.1
+                        ) !important;
+                    }
+                }
+            }
+
+            a {
+                color: #ffffff !important;
+
+                &:hover,
+                &.advanced-sidebar-nav-menu-open {
+                    color: #ffffff !important;
+                    background-color: rgba(
+                        $color: #000000,
+                        $alpha: 0.1
+                    ) !important;
+                }
             }
         }
     }
