@@ -7,7 +7,7 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
     {
         $widget_opts = array(
             'classname' => 'advanced-sidebar-nav-widget',
-            'description' => 'The best way to display navigation menus on sidebar, no matter how many depth!',
+            'description' => __('The best way to display navigation menus on sidebar, no matter how many depth!'),
         );
 
         parent::__construct(false, __('Advanced Sidebar Nav'), $widget_opts);
