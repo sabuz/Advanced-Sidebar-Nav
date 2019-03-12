@@ -34,7 +34,7 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'echo' => false,
         ));
 
-        if($instance['color']) {
+        if ($instance['color']) {
             $css = "#{$this->id} .advanced-sidebar-nav > ul {background-color: {$instance['color']}}";
             wp_add_inline_style('advanced-sidebar-nav', $css);
         }
@@ -58,7 +58,7 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'name' => esc_attr($this->get_field_name('title')),
             'label' => 'Title:',
             'description' => '',
-            'value' => $instance['title'],
+            'value' => @$instance['title'],
         ));
 
         echo Advanced_Sidebar_Nav_Widget_Opts::select(array(
@@ -66,9 +66,9 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'label' => 'Select Menu:',
             'description' => '',
             'options' => 'menu',
-            'default' => $instance['menu'],
+            'value' => @$instance['menu'],
         ));
-        
+
         echo Advanced_Sidebar_Nav_Widget_Opts::select(array(
             'name' => esc_attr($this->get_field_name('theme')),
             'label' => 'Select Theme:',
@@ -76,14 +76,14 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             'options' => array(
                 'default' => 'Default',
             ),
-            'default' => $instance['menu'],
+            'value' => @$instance['menu'],
         ));
 
         echo Advanced_Sidebar_Nav_Widget_Opts::color(array(
             'name' => esc_attr($this->get_field_name('color')),
             'label' => 'Accent Color:',
             'description' => '',
-            'value' => $instance['color'],
+            'value' => @$instance['color'],
             'default' => '#0F434F',
         ));
     }

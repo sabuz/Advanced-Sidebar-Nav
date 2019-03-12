@@ -77,7 +77,7 @@ class Advanced_Sidebar_Nav_Widget_Opts
             'label' => '',
             'description' => '',
             'options' => array(),
-            'default' => '',
+            'value' => '',
             'html_class' => '',
             'html_id' => '',
         );
@@ -94,7 +94,7 @@ class Advanced_Sidebar_Nav_Widget_Opts
 
         if (!empty($args['options'])) {
             foreach ($args['options'] as $key => $value) {
-                $html .= '<option value="' . esc_html($key) . '" ' . (esc_html($args['default']) == esc_html($key) ? 'selected' : '') . '>' . esc_html($value) . '</option>';
+                $html .= '<option value="' . esc_html($key) . '" ' . (esc_html($args['value']) == esc_html($key) ? 'selected' : '') . '>' . esc_html($value) . '</option>';
             }
         }
 
