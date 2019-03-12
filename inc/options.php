@@ -25,7 +25,7 @@ class Advanced_Sidebar_Nav_Widget_Opts
         echo '<script>
             (function($) {
                 function initColorPicker(widget) {
-                    widget.find(".color-picker").wpColorPicker({
+                    $(".color-picker", widget).wpColorPicker({
                         change: function(e, ui) {
                             $(e.target).val(ui.color.toString());
                             $(e.target).trigger("change");

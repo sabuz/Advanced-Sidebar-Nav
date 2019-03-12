@@ -16,9 +16,9 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
     public function widget($args, $instance)
     {
         // asset output
-        wp_enqueue_style('advanced-sidebar-nav');
         wp_enqueue_script('jquery');
         wp_enqueue_script('advanced-sidebar-nav');
+        wp_enqueue_style('advanced-sidebar-nav');
 
         // html output
         echo $args['before_widget'];
