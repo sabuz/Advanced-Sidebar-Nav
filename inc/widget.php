@@ -27,14 +27,16 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
             echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
         }
 
-        echo wp_nav_menu(array(
-            'menu' => $instance['menu'],
-            'menu_class' => 'advanced-sidebar-menu',
-            'container_class' => 'advanced-sidebar-nav advanced-sidebar-nav-default',
-            'echo' => false,
-        ));
+        if (!empty($instance['menu'])) {
+            echo wp_nav_menu(array(
+                'menu' => $instance['menu'],
+                'menu_class' => 'advanced-sidebar-menu',
+                'container_class' => 'advanced-sidebar-nav advanced-sidebar-nav-default',
+                'echo' => false,
+            ));
+        }
 
-        if ($instance['color']) {
+        if (!empty($instance['color'])) {
             $css = "#{$this->id} .advanced-sidebar-nav > ul {background-color: {$instance['color']}}";
             wp_add_inline_style('advanced-sidebar-nav', $css);
         }
