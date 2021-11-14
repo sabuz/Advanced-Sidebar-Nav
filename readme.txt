@@ -25,6 +25,7 @@ If you encounter any bugs, or have comments or suggestions, please submit a tick
 
 = 1.1 =
 * Fixes fallback color.
+* Fixes PHP notices in Gutenberg editor.
 
 = 1.0 =
 * Initial release.
