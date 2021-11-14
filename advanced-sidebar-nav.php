@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Sidebar Nav
  * Description: The best way to display navigation menus on sidebar, no matter how many depth!
- * Version: 1.0
+ * Version: 1.1
  * Author: Nazmul Sabuz
  * Author URI: https://profiles.wordpress.org/nazsabuz/
  * License: GPL2

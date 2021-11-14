@@ -2,8 +2,8 @@
 Contributors: nazsabuz
 Tags: sidebar nav, sidebar menu, widget menu
 Requires at least: 4.0
-Tested up to: 5.1
-Stable tag: 1.0
+Tested up to: 5.8.2
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ After downloading and extracting the latest version of the plugin:
 If you encounter any bugs, or have comments or suggestions, please submit a ticket using support forum.
 
 == Changelog ==
+
+= 1.1 =
+* Fixes fallback color.
 
 = 1.0 =
 * Initial release.
