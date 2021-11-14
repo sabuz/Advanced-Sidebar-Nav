@@ -47,7 +47,7 @@ class Advanced_Sidebar_Nav_Widget extends WP_Widget
         $instance = array();
         $instance['title'] = !empty($new_instance['title']) ? strip_tags($new_instance['title']) : '';
         $instance['menu'] = !empty($new_instance['menu']) ? $new_instance['menu'] : null;
-        $instance['color'] = !empty($new_instance['color']) ? $new_instance['color'] : '#ffffff';
+        $instance['color'] = !empty($new_instance['color']) ? $new_instance['color'] : '#0f434f';
 
         return $instance;
     }
